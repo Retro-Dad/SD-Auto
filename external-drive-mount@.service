@@ -1,0 +1,11 @@
+# /etc/systemd/system
+# sudo systemctl daemon-reload
+
+[Unit]
+Description=Mount External Drive on %i
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/home/deck/.local/share/Retro-Dad/SD-Auto/automount.sh add %i
+ExecStop=/home/deck/.local/share/Retro-Dad/SD-Auto/automount.sh remove %i
